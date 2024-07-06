@@ -5,16 +5,16 @@ import com.itjn.common.enums.ResultCodeEnum;
 /**
  * 自定义全局异常(业务异常)
  */
-public class CustomException extends RuntimeException {
+public class BusibessException extends RuntimeException {
     private String code;
     private String msg;
 
-    public CustomException(ResultCodeEnum resultCodeEnum) {
+    public BusibessException(ResultCodeEnum resultCodeEnum) {
         this.code = resultCodeEnum.code;
         this.msg = resultCodeEnum.msg;
     }
 
-    public CustomException(String code, String msg) {
+    public BusibessException(String code, String msg) {
         this.code = code;
         this.msg = msg;
     }
