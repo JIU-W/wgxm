@@ -71,6 +71,13 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+            <!-- Swagger API 文档生成工具 -->
+        </dependency>
 
     </dependencies>
 
