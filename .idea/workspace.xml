@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c99b1b0b-d8dd-4f53-a689-a6a5a8a973b7" name="Changes" comment="登录接口">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/domain/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/domain/dto/UserRegisterDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/domain/dto/UserResetPasswordDTO.java" afterDir="false" />
+    <list default="true" id="c99b1b0b-d8dd-4f53-a689-a6a5a8a973b7" name="Changes" comment="JWT令牌">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/SpringbootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/SpringbootApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/service/serviceimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/serviceimpl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/common/enums/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/common/enums/ResultCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenAdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenUserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenUserInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/idea.code/wgxm/src/main/java/com/itjn/commom",
+    "last_opened_file_path": "D:/idea.code/wgxm/src/main/java/com/itjn",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -73,22 +68,30 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "spring.boot",
     "spring.configuration.checksum": "e7d40a2198d82103efc41e807e8db3be",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\idea.code\wgxm\src\main\java\com\itjn" />
       <recent name="D:\idea.code\wgxm\src\main\java\com\itjn\commom" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.itjn.common.context" />
+      <recent name="com.itjn.common.properties" />
+      <recent name="com.itjn.utils" />
+      <recent name="com.itjn.interceptor" />
       <recent name="com.itjn.common.config" />
-      <recent name="com.itjn.common.enums" />
-      <recent name="com.itjn" />
-      <recent name="com.itjn.exception" />
-      <recent name="com.itjn.commom.config" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="SpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -135,7 +138,31 @@
       <workItem from="1720659463495" duration="2083000" />
       <workItem from="1720748962944" duration="8690000" />
       <workItem from="1720851730020" duration="1424000" />
-      <workItem from="1720927891286" duration="12206000" />
+      <workItem from="1720927891286" duration="12599000" />
+      <workItem from="1720975691688" duration="96000" />
+      <workItem from="1721005058047" duration="2538000" />
+      <workItem from="1721055173785" duration="4618000" />
+      <workItem from="1721092605694" duration="1429000" />
+      <workItem from="1721126030236" duration="1288000" />
+      <workItem from="1721472529757" duration="2968000" />
+      <workItem from="1721540989050" duration="4239000" />
+      <workItem from="1721609207914" duration="5685000" />
+      <workItem from="1721659530975" duration="1338000" />
+      <workItem from="1721696755916" duration="5116000" />
+      <workItem from="1721783545047" duration="2421000" />
+      <workItem from="1721869014720" duration="1262000" />
+      <workItem from="1721918660700" duration="614000" />
+      <workItem from="1721954665603" duration="2400000" />
+      <workItem from="1722046404613" duration="585000" />
+      <workItem from="1722148684444" duration="779000" />
+      <workItem from="1722183726545" duration="14000" />
+      <workItem from="1722214837017" duration="545000" />
+      <workItem from="1722759774788" duration="1562000" />
+      <workItem from="1722914941699" duration="1193000" />
+      <workItem from="1722994270648" duration="1194000" />
+      <workItem from="1723168732994" duration="1328000" />
+      <workItem from="1723356082583" duration="2644000" />
+      <workItem from="1723448985186" duration="12093000" />
     </task>
     <task id="LOCAL-00001" summary="第一次编写">
       <created>1720180238038</created>
@@ -165,11 +192,36 @@
       <option name="project" value="LOCAL" />
       <updated>1720505323086</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="重置密码接口">
+      <created>1720975525085</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720975525085</updated>
+    </task>
+    <task id="LOCAL-00006" summary="JWT令牌">
+      <created>1723484222997</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1723484222997</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -187,6 +239,12 @@
     <MESSAGE value="补充了部分代码" />
     <MESSAGE value="测试接口" />
     <MESSAGE value="登录接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录接口" />
+    <MESSAGE value="重置密码接口" />
+    <MESSAGE value="JWT令牌" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT令牌" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
