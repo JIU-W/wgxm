@@ -51,7 +51,7 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
             log.info("jwt校验:{}", token);
             Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(), token);
             Long adminId = Long.valueOf(claims.get("adminId").toString());
-            log.info("当前员工id：", adminId);
+            //log.info("当前员工id：", adminId);
             BaseContext.setCurrentId(adminId);
             //3、通过，放行
             return true;

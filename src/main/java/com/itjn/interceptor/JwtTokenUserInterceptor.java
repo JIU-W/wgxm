@@ -1,7 +1,9 @@
 package com.itjn.interceptor;
 
 import com.itjn.common.context.BaseContext;
+import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.common.properties.JwtProperties;
+import com.itjn.exception.BusibessException;
 import com.itjn.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
@@ -51,14 +53,14 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
             log.info("jwt校验:{}", token);
             Claims claims = JwtUtil.parseJWT(jwtProperties.getUserSecretKey(), token);
             Long userId = Long.valueOf(claims.get("userId").toString());
-            log.info("当前用户的id：", userId);
+            //log.info("当前用户的id：", userId);
             BaseContext.setCurrentId(userId);
             //3、通过，放行
             return true;
         } catch (Exception ex) {
             //4、不通过，响应401状态码
             response.setStatus(401);
-            return false;
+            throw new BusibessException(ResultCodeEnum.TOKEN_INVALID_ERROR);
         }
     }
 }

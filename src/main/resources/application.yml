@@ -28,17 +28,18 @@ mybatis:
 wgxm:
   jwt:
     # 设置jwt签名加密时使用的秘钥
-    user-secret-key: wgxm
-    # 设置jwt过期时间
-    user-ttl: 7200000
+    userSecretKey: eyJpdiI6IlB4WlhLQ0ZqVlJtYlFvT0RnTjNnUT09
+    # 设置jwt过期时间(对应的是2小时的过期时间)
+    userTtl: 7200000
     # 设置前端传递过来的令牌名称
-    user-token-name: authentication
+    userTokenName: authentication
+
     # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: wgxm
+    adminSecretKey: wgxm
     # 设置jwt过期时间
-    admin-ttl: 7200000
+    adminTtl: 7200000
     # 设置前端传递过来的令牌名称
-    admin-token-name: token
+    adminTokenName: token
 
 logging:
   level:
