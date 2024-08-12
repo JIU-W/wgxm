@@ -25,6 +25,21 @@ mybatis:
     #开启驼峰命名
     map-underscore-to-camel-case: true
 
+wgxm:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: wgxm
+    # 设置jwt过期时间
+    user-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    user-token-name: authentication
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: wgxm
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+
 logging:
   level:
     com:

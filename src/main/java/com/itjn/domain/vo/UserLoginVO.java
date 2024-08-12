@@ -19,6 +19,9 @@ public class UserLoginVO implements Serializable {
 
     private String name;
 
+    /*JWT令牌*/
+    private String token;
+
     private String email;
 
     private String avatar;
@@ -32,8 +35,5 @@ public class UserLoginVO implements Serializable {
     private String info;
 
     private String birth;
-
-    //private String token;
-
 
 }

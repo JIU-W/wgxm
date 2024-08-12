@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.util.StringUtil;
 import com.itjn.common.Result;
 import com.itjn.common.enums.ResultCodeEnum;
+import com.itjn.common.properties.JwtProperties;
 import com.itjn.domain.dto.UserDTO;
 import com.itjn.domain.dto.UserLoginDTO;
 import com.itjn.domain.dto.UserRegisterDTO;
@@ -12,10 +13,15 @@ import com.itjn.domain.dto.UserResetPasswordDTO;
 import com.itjn.domain.entity.User;
 import com.itjn.domain.vo.UserLoginVO;
 import com.itjn.service.UserService;
+import com.itjn.utils.JwtUtil;
 import com.mysql.cj.util.StringUtils;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @RestController
@@ -25,6 +31,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private JwtProperties jwtProperties;
 
     /**
      * 登录
@@ -39,11 +48,20 @@ public class UserController {
         }
         User user = userService.login(userLoginDTO);
 
+        //登录成功后，生成jwt令牌
+        Map<String, Object> claims = new HashMap<>();
+        claims.put("userId", user.getUserId());
+        String token = JwtUtil.createJWT(
+                jwtProperties.getUserSecretKey(),
+                jwtProperties.getUserTtl(),
+                claims);
+
         //密码不返回给前端
         UserLoginVO userLoginVO = new UserLoginVO().builder()
                 .userId(user.getUserId())
                 .userName(user.getUserName())
                 .name(user.getName())
+                .token(token)
                 .email(user.getEmail())
                 .avatar(user.getAvatar())
                 .role(user.getRole())
@@ -52,6 +70,7 @@ public class UserController {
                 .info(user.getInfo())
                 .birth(user.getBirth())
                 .build();
+
         return Result.success(userLoginVO);
     }
 
@@ -85,10 +104,17 @@ public class UserController {
 
     //TODO 获取用户信息接口(查询接口)
 
-    //TODO 登出接口
+
+    //退出接口
+    @PostMapping("/logout")
+    public Result logout() {
+        return Result.success();
+    }
 
     //TODO 获取用户头像接口(用户头像存在阿里云)(文件上传接口)
 
     //TODO 文件上传到 阿里云/本地
+
+    //学会Swagger的使用
 
 }
