@@ -13,6 +13,5 @@ public interface UserService {
 
     void register(UserRegisterDTO userRegisterDTO);
 
-    void updatePassword(UserResetPasswordDTO userResetPasswordDTO);
 
 }

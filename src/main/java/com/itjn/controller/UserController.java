@@ -4,6 +4,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.util.StringUtil;
 import com.itjn.common.Result;
+import com.itjn.common.context.BaseContext;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.common.properties.JwtProperties;
 import com.itjn.domain.dto.UserDTO;
@@ -88,28 +89,17 @@ public class UserController {
         return Result.success();
     }
 
-    //重置密码接口
-    @PutMapping("/updatePassword")
-    public Result updatePassword(@RequestBody UserResetPasswordDTO userResetPasswordDTO){
-        if (StrUtil.isBlank(userResetPasswordDTO.getUserName()) ||
-                StrUtil.isBlank(userResetPasswordDTO.getPassword()) ||
-                StrUtil.isBlank(userResetPasswordDTO.getNewPassword())) {
-            return Result.error(ResultCodeEnum.PARAM_LOST_ERROR);
-        }
-        userService.updatePassword(userResetPasswordDTO);
-        return Result.success();
-    }
-
     //TODO 修改用户信息接口(修改接口)
 
     //TODO 获取用户信息接口(查询接口)
 
+    //TODO  分页查询(用sky-take-out项目那一套完整的写法)
 
-    //退出接口
-    @PostMapping("/logout")
+    //退出接口（不用写）
+    /*@PostMapping("/logout")
     public Result logout() {
         return Result.success();
-    }
+    }*/
 
     //TODO 获取用户头像接口(用户头像存在阿里云)(文件上传接口)
 

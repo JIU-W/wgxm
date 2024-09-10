@@ -52,14 +52,14 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
         try {
             log.info("jwt校验:{}", token);
             Claims claims = JwtUtil.parseJWT(jwtProperties.getUserSecretKey(), token);
-            Long userId = Long.valueOf(claims.get("userId").toString());
+            Integer userId = Integer.valueOf(claims.get("userId").toString());
             //log.info("当前用户的id：", userId);
             BaseContext.setCurrentId(userId);
             //3、通过，放行
             return true;
-        } catch (Exception ex) {
+        } catch (Exception ex) {//如果在JWT校验和解析过程中发生异常（例如，JWT无效、过期、签名错误等），则捕获异常。
             //4、不通过，响应401状态码
-            response.setStatus(401);
+            //response.setStatus(401);(不用加!!!)
             throw new BusibessException(ResultCodeEnum.TOKEN_INVALID_ERROR);
         }
     }

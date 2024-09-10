@@ -4,12 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c99b1b0b-d8dd-4f53-a689-a6a5a8a973b7" name="Changes" comment="JWT令牌">
+    <list default="true" id="c99b1b0b-d8dd-4f53-a689-a6a5a8a973b7" name="Changes" comment="JWT令牌第二次提交">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/controller/NoticeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/controller/UserInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/domain/dto/ChangePasswordDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/domain/entity/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/mapper/NoticeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/mapper/UserInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/NoticeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/UserInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/impl/NoticeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/impl/UserInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/NoticeMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/common/enums/ResultCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/common/enums/ResultCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/common/config/WebMvcConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/common/config/WebMvcConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/common/context/BaseContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/common/context/BaseContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/domain/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenAdminInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenAdminInterceptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenUserInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/interceptor/JwtTokenUserInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/itjn/service/serviceimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/itjn/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +38,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="spring-beans.schema" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -60,7 +78,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/idea.code/wgxm/src/main/java/com/itjn",
+    "last_opened_file_path": "D:/idea.code/wgxm/src/main/resources/mapper",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,15 +93,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\idea.code\wgxm\src\main\resources\mapper" />
       <recent name="D:\idea.code\wgxm\src\main\java\com\itjn" />
       <recent name="D:\idea.code\wgxm\src\main\java\com\itjn\commom" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.itjn.domain.entity" />
+      <recent name="com.itjn.mapper" />
       <recent name="com.itjn.common.context" />
       <recent name="com.itjn.common.properties" />
       <recent name="com.itjn.utils" />
-      <recent name="com.itjn.interceptor" />
-      <recent name="com.itjn.common.config" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -162,7 +181,25 @@
       <workItem from="1722994270648" duration="1194000" />
       <workItem from="1723168732994" duration="1328000" />
       <workItem from="1723356082583" duration="2644000" />
-      <workItem from="1723448985186" duration="12093000" />
+      <workItem from="1723448985186" duration="12434000" />
+      <workItem from="1723512384274" duration="386000" />
+      <workItem from="1723514849347" duration="1165000" />
+      <workItem from="1723598973394" duration="3007000" />
+      <workItem from="1723686567567" duration="889000" />
+      <workItem from="1724081353851" duration="21000" />
+      <workItem from="1724139110534" duration="56000" />
+      <workItem from="1724171219714" duration="595000" />
+      <workItem from="1724487803461" duration="1227000" />
+      <workItem from="1724688809473" duration="16000" />
+      <workItem from="1725117062674" duration="1270000" />
+      <workItem from="1725269005838" duration="517000" />
+      <workItem from="1725379394769" duration="573000" />
+      <workItem from="1725415132083" duration="1007000" />
+      <workItem from="1725675745841" duration="3470000" />
+      <workItem from="1725727937483" duration="128000" />
+      <workItem from="1725764979518" duration="3727000" />
+      <workItem from="1725850366522" duration="11004000" />
+      <workItem from="1725936647155" duration="17436000" />
     </task>
     <task id="LOCAL-00001" summary="第一次编写">
       <created>1720180238038</created>
@@ -206,7 +243,21 @@
       <option name="project" value="LOCAL" />
       <updated>1723484222997</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="JWT令牌第二次提交">
+      <created>1723485803921</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1723485803921</updated>
+    </task>
+    <task id="LOCAL-00008" summary="JWT令牌第二次提交">
+      <created>1723485847780</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723485847780</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +292,8 @@
     <MESSAGE value="登录接口" />
     <MESSAGE value="重置密码接口" />
     <MESSAGE value="JWT令牌" />
-    <option name="LAST_COMMIT_MESSAGE" value="JWT令牌" />
+    <MESSAGE value="JWT令牌第二次提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="JWT令牌第二次提交" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

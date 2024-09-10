@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itjn.mapper.UserInfoMapper">
+
+    <sql id="Base_Column_List">
+        id,username,password,name,phone,email,avatar,role,sex,info,birth
+    </sql>
+
+    <select id="selectAll" resultType="com.itjn.domain.entity.User">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        <where>
+            <if test="userId != null"> and user_id= #{userId}</if>
+            <if test="userName != null"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="password != null"> and password= #{password}</if>
+            <if test="name != null"> and name like concat('%', #{name}, '%')</if>
+            <if test="email != null"> and email= #{email}</if>
+            <if test="avatar != null"> and avatar= #{avatar}</if>
+            <if test="role != null"> and role= #{role}</if>
+            <if test="sex != null"> and sex= #{sex}</if>
+            <if test="phone != null"> and phone= #{phone}</if>
+            <if test="info != null"> and info= #{info}</if>
+            <if test="birth != null"> and brith= #{birth}</if>
+        </where>
+    </select>
+
+    <update id="updateUserInfo">
+        update user
+        <set>
+            <if test="userName != null">user_name = #{userName},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="email != null">email = #{email},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="role != null">role = #{role},</if>
+            <if test="sex != null">sex = #{sex},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="info != null">info = #{info},</if>
+            <if test="birth != null">birth = #{birth},</if>
+        </set>
+        where user_id = #{userId}
+    </update>
+
+</mapper>
