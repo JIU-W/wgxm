@@ -89,22 +89,14 @@ public class UserController {
         return Result.success();
     }
 
-    //TODO 修改用户信息接口(修改接口)
-
-    //TODO 获取用户信息接口(查询接口)
-
-    //TODO  分页查询(用sky-take-out项目那一套完整的写法)
-
     //退出接口（不用写）
     /*@PostMapping("/logout")
     public Result logout() {
         return Result.success();
     }*/
 
-    //TODO 获取用户头像接口(用户头像存在阿里云)(文件上传接口)
+    //TODO 学会Swagger的使用
 
-    //TODO 文件上传到 阿里云/本地
-
-    //学会Swagger的使用
+    //TODO 引入Redis
 
 }

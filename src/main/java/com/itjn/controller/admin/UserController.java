@@ -3,8 +3,7 @@ package com.itjn.controller.admin;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-/*
-@RestController
+/*@RestController
 @RequestMapping("/admin/user")
 public class UserController {
 
@@ -15,7 +14,5 @@ public class UserController {
     //删除User用户
 
     //修改User用户信息
-
-
 
 }*/
