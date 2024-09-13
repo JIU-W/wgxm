@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/admin/user")
 public class UserController {
 
-    //TODO 管理员登录
+    //TODO 管理员登录（分权限登录，现在业务不足，后续再来更新）
 
     //查询User用户列表
 

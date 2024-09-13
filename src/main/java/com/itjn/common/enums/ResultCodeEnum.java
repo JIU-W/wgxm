@@ -20,7 +20,10 @@ public enum ResultCodeEnum {
     USER_ACCOUNT_ERROR("5003", "账号或密码错误"),
     USER_NOT_EXIST_ERROR("5004", "用户不存在"),
     PARAM_PASSWORD_ERROR("5005", "原密码输入错误"),
-    ACTIVITY_SIGN_ERROR("5006","活动已报名");
+
+    CHECK_CODE_LOST_ERROR("5006", "图片验证码缺失"),
+
+    CHECK_CODE_ERROR("5007", "图片验证码错误");
 
     public String code;
     public String msg;

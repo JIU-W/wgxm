@@ -1,25 +1,34 @@
 package com.itjn.common.config;
 
-import org.springframework.context.annotation.Bean;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * 跨域配置
- */
+//跨域配置
 @Configuration
-public class CorsConfig {
-    @Bean
-    public CorsFilter corsFilter() {
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("*"); // 1 设置访问源地址
-        corsConfiguration.addAllowedHeader("*"); // 2 设置访问源请求头
-        corsConfiguration.addAllowedMethod("*"); // 3 设置访问源请求方法
-        source.registerCorsConfiguration("/**", corsConfiguration); // 4 对接口配置跨域设置
-        return new CorsFilter(source);
-    }
-}
+//@Order(Ordered.HIGHEST_PRECEDENCE)
+//@ComponentScan("com.itjn.common.config")
+@Slf4j
+public class CorsConfig implements WebMvcConfigurer {
 
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+                //设置允许跨域的路径
+        registry.addMapping("/**")//任意路径
+                //设置允许跨域请求的域名
+                .allowedOriginPatterns("*")//任意域名
+                //是否允许cookie
+                .allowCredentials(true)
+                //设置允许的请求方式
+                .allowedMethods("GET", "POST", "DELETE", "PUT","OPTIONS")
+                //设置允许的header属性
+                .allowedHeaders("*")
+                // 跨域允许时间
+                .maxAge(3600);
+    }
+
+}

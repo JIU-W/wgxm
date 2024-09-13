@@ -36,6 +36,12 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+        //跨域OPTIONS请求直接放行
+        /*if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            response.setStatus(HttpServletResponse.SC_OK);
+            return true;
+        }*/
+
         //System.out.println("当前线程的id：" + Thread.currentThread().getId());
 
 

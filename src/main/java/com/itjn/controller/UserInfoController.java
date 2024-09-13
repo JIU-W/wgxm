@@ -2,12 +2,14 @@ package com.itjn.controller;
 
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import com.itjn.common.PageResult;
 import com.itjn.common.Result;
 import com.itjn.common.context.BaseContext;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.common.enums.RoleEnum;
 import com.itjn.domain.dto.ChangePasswordDTO;
 import com.itjn.domain.dto.UserDTO;
+import com.itjn.domain.dto.UserPageQueryDTO;
 import com.itjn.domain.entity.User;
 import com.itjn.service.UserInfoService;
 import com.itjn.service.UserService;
@@ -18,13 +20,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/userInfo")
+@CrossOrigin(origins = "*", maxAge = 3600)//允许跨域
 public class UserInfoController {
-
 
     @Autowired
     private UserInfoService userInfoService;
 
-    //查询用户信息(满足查询条件的均可以被查到，可能会有多个。如果没有查询条件就是查询所有)
+    //查询所有用户信息(满足查询条件的均可以被查到，可能会有多个。如果没有查询条件就是查询所有)
     @GetMapping("/selectAll")
     public Result selectAll(User user){
         List<User> list = userInfoService.selectAll(user);
@@ -55,5 +57,34 @@ public class UserInfoController {
         userInfoService.updatePassword(changePasswordDTO);
         return Result.success();
     }
+
+    //新增用户
+    @PostMapping("/save")
+    public Result save(@RequestBody User user){
+        userInfoService.save(user);
+        return Result.success();
+    }
+
+    //根据userId删除用户
+    @DeleteMapping("/delete/{userId}")
+    public Result deleteByUserId(@PathVariable Integer userId){
+        userInfoService.deleteByUserId(userId);
+        return Result.success();
+    }
+
+    //批量删除
+    @DeleteMapping("/delete/batch")
+    public Result deleteBatch(@RequestBody List<Integer> ids){
+        userInfoService.deleteBatch(ids);
+        return Result.success();
+    }
+
+    //分页查询(用的sky-take-out那一套)
+    @GetMapping("/selectPage")
+    public Result page(UserPageQueryDTO userPageQueryDTO){
+        PageResult pageResult = userInfoService.selectPage(userPageQueryDTO);
+        return Result.success(pageResult);
+    }
+
 
 }

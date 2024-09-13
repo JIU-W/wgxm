@@ -5,8 +5,47 @@
 <mapper namespace="com.itjn.mapper.UserInfoMapper">
 
     <sql id="Base_Column_List">
-        id,username,password,name,phone,email,avatar,role,sex,info,birth
+        user_id,user_name,password,name,phone,email,avatar,role,sex,info,birth
     </sql>
+
+    <!--动态SQL-->
+    <insert id="insert" parameterType="com.itjn.domain.entity.User" useGeneratedKeys="true">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">user_id,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="password != null">password,</if>
+            <if test="name != null">name,</if>
+            <if test="phone != null">phone,</if>
+            <if test="email != null">email,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="role != null">role,</if>
+            <if test="sex != null">sex,</if>
+            <if test="info != null">info,</if>
+            <if test="birth != null">birth,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">#{userId},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="password != null">#{password},</if>
+            <if test="name != null">#{name},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="email != null">#{email},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="role != null">#{role},</if>
+            <if test="sex != null">#{sex},</if>
+            <if test="info != null">#{info},</if>
+            <if test="birth != null">#{birth},</if>
+        </trim>
+    </insert>
+
+    <!--批量删除-->
+    <delete id="deleteBatch" parameterType="java.util.List">
+        DELETE FROM user WHERE user_id IN
+        <foreach item="item" collection="list" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
 
     <select id="selectAll" resultType="com.itjn.domain.entity.User">
         select
@@ -25,6 +64,27 @@
             <if test="info != null"> and info= #{info}</if>
             <if test="birth != null"> and brith= #{birth}</if>
         </where>
+    </select>
+
+    <!--分页查询-->
+    <select id="selectPage" resultType="com.itjn.domain.entity.User">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        <where>
+            <if test="userId != null"> and user_id= #{userId}</if>
+            <if test="userName != null"> and user_name like concat('%', #{userName}, '%')</if>
+            <if test="password != null"> and password= #{password}</if>
+            <if test="name != null"> and name like concat('%', #{name}, '%')</if>
+            <if test="email != null"> and email= #{email}</if>
+            <if test="avatar != null"> and avatar= #{avatar}</if>
+            <if test="role != null"> and role= #{role}</if>
+            <if test="sex != null"> and sex= #{sex}</if>
+            <if test="phone != null"> and phone= #{phone}</if>
+            <if test="info != null"> and info= #{info}</if>
+            <if test="birth != null"> and brith= #{birth}</if>
+        </where>
+
     </select>
 
     <update id="updateUserInfo">
