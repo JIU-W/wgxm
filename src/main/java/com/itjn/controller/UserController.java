@@ -4,9 +4,11 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.util.StringUtil;
 import com.itjn.common.Result;
+import com.itjn.common.annotation.Log;
 import com.itjn.common.config.CaptchaConfig;
 import com.itjn.common.constants.Constants;
 import com.itjn.common.context.BaseContext;
+import com.itjn.common.enums.BusinessType;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.common.properties.JwtProperties;
 import com.itjn.domain.dto.UserDTO;
@@ -49,6 +51,7 @@ public class UserController {
     private CaptchaConfig catchaConfig;
 
     //获取验证码
+    @Log(title = "获取图片验证码信息", businessType = BusinessType.OTHER)
     @GetMapping("/checkCode")
     public void getCode(HttpServletResponse response, HttpSession session) throws IOException {
         CreateImageCodeUtil imageCode = new CreateImageCodeUtil(130,40,5,20);
@@ -73,6 +76,7 @@ public class UserController {
      * @param userLoginDTO
      * @return
      */
+    @Log(title = "登录", businessType = BusinessType.LOGIN)
     @PostMapping("/login")
     public Result login(HttpSession session,@RequestBody UserLoginDTO userLoginDTO){
         //参数校验
@@ -125,6 +129,7 @@ public class UserController {
      * @param userRegisterDTO
      * @return
      */
+    @Log(title = "注册", businessType = BusinessType.REGISTER)
     @PostMapping("/register")
     public Result register(@RequestBody UserRegisterDTO userRegisterDTO){
         if (StrUtil.isBlank(userRegisterDTO.getUserName()) || StrUtil.isBlank(userRegisterDTO.getPassword())) {

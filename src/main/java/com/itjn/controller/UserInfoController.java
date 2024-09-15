@@ -4,7 +4,9 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.itjn.common.PageResult;
 import com.itjn.common.Result;
+import com.itjn.common.annotation.Log;
 import com.itjn.common.context.BaseContext;
+import com.itjn.common.enums.BusinessType;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.common.enums.RoleEnum;
 import com.itjn.domain.dto.ChangePasswordDTO;
@@ -27,6 +29,7 @@ public class UserInfoController {
     private UserInfoService userInfoService;
 
     //查询所有用户信息(满足查询条件的均可以被查到，可能会有多个。如果没有查询条件就是查询所有)
+    @Log(title = "查询所有用户信息", businessType = BusinessType.QUERY)
     @GetMapping("/selectAll")
     public Result selectAll(User user){
         List<User> list = userInfoService.selectAll(user);
@@ -34,6 +37,7 @@ public class UserInfoController {
     }
 
     //根据userId查询用户信息
+    @Log(title = "根据userId查询用户信息", businessType = BusinessType.QUERY)
     @GetMapping("/selectById/{id}")
     public Result selectById(@PathVariable Integer id){
         User user = userInfoService.selectById(id);

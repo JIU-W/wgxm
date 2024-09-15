@@ -60,11 +60,11 @@
         </dependency>
 
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>
             <version>4.3.0</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -105,6 +105,34 @@
             <artifactId>jjwt-jackson</artifactId>
             <version>0.11.2</version> <!-- 同上 -->
             <scope>runtime</scope>
+        </dependency>
+
+        <!--AOP-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>2.6.6</version>
+        </dependency>
+
+        <!--mybatisPlus-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.76</version> <!-- 请根据需要选择合适的版本 -->
+        </dependency>
+
+        <!--Apache Commons Lang库-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version> <!-- 请将xx替换为具体的版本号 -->
         </dependency>
 
     </dependencies>
