@@ -14,7 +14,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("/notice")
-@CrossOrigin(origins = "*", maxAge = 3600)//允许跨域
+//@CrossOrigin(origins = "*", maxAge = 3600)//允许跨域
 public class NoticeController {
 
     @Resource

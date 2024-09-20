@@ -42,13 +42,11 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        // 排除Swagger UI的路径
-
         //跨域OPTIONS请求直接放行
-        /*if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            response.setStatus(HttpServletResponse.SC_OK);
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            //response.setStatus(HttpServletResponse.SC_OK);
             return true;
-        }*/
+        }
 
         //System.out.println("当前线程的id：" + Thread.currentThread().getId());
 

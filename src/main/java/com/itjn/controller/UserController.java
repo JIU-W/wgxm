@@ -31,7 +31,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/user")
 @Slf4j
-@CrossOrigin(origins = "*", maxAge = 3600)//允许跨域
+//@CrossOrigin(origins = "*", maxAge = 3600)//允许跨域
 public class UserController {
 
     @Autowired
@@ -137,8 +137,6 @@ public class UserController {
     public Result logout() {
         return Result.success();
     }*/
-
-    //TODO 学会Swagger的使用
 
     //TODO 引入Redis
 
