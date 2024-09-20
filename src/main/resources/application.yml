@@ -46,5 +46,16 @@ logging:
     com:
       itjn:
         mapper: debug
-        service: info
-        controller: info
+        service: debug
+        controller: debug
+
+
+
+sy:
+  chat:
+    api-key: 'YBHTRrFtcl0aJOFBPDgpebYwxXWcJGRUplm1PVMeCULc'
+    base-url: 'https://ollama.yamazing.cn/v1/chat/completions'
+    model: 'llama3-8b-8192'
+    max-tokens: 4096
+    stream: false
+

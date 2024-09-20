@@ -1,20 +1,15 @@
 package com.itjn.controller;
 
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
-import com.github.pagehelper.util.StringUtil;
 import com.itjn.common.Result;
 import com.itjn.common.annotation.Log;
 import com.itjn.common.config.CaptchaConfig;
 import com.itjn.common.constants.Constants;
-import com.itjn.common.context.BaseContext;
 import com.itjn.common.enums.BusinessType;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.common.properties.JwtProperties;
-import com.itjn.domain.dto.UserDTO;
 import com.itjn.domain.dto.UserLoginDTO;
 import com.itjn.domain.dto.UserRegisterDTO;
-import com.itjn.domain.dto.UserResetPasswordDTO;
 import com.itjn.domain.entity.User;
 import com.itjn.domain.vo.UserLoginVO;
 import com.itjn.exception.BusibessException;
@@ -22,12 +17,10 @@ import com.itjn.service.UserService;
 import com.itjn.utils.CreateImageCodeUtil;
 import com.itjn.utils.JwtUtil;
 import com.mysql.cj.util.StringUtils;
-import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;

@@ -36,6 +36,14 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+        //判断当前拦截到的是Controller的方法还是其他资源
+        if (!(handler instanceof HandlerMethod)) {
+            //当前拦截到的不是动态方法，直接放行
+            return true;
+        }
+
+        // 排除Swagger UI的路径
+
         //跨域OPTIONS请求直接放行
         /*if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
@@ -43,13 +51,6 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
         }*/
 
         //System.out.println("当前线程的id：" + Thread.currentThread().getId());
-
-
-        //判断当前拦截到的是Controller的方法还是其他资源
-        if (!(handler instanceof HandlerMethod)) {
-            //当前拦截到的不是动态方法，直接放行
-            return true;
-        }
 
         //1、从请求头中获取令牌
         String token = request.getHeader(jwtProperties.getUserTokenName());

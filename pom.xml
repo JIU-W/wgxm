@@ -71,12 +71,43 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!-- swagger -->
-        <dependency>
+        <!-- swagger 2 -->
+        <!--<dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
-            <!-- Swagger API 文档生成工具 -->
+            &lt;!&ndash; Swagger API 文档生成工具 &ndash;&gt;
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.swagger2markup</groupId>
+            <artifactId>swagger2markup</artifactId>
+            <version>1.3.3</version>
+            &lt;!&ndash; 将Swagger文档转换为其他格式的工具 &ndash;&gt;
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+            &lt;!&ndash; Swagger UI API 文档展示界面 &ndash;&gt;
+        </dependency>-->
+
+
+        <!-- Swagger 3 dependencies -->
+        <!--<dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+       -->
+
+        <!--knife4j-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>3.0.2</version>
         </dependency>
 
 
@@ -133,6 +164,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version> <!-- 请将xx替换为具体的版本号 -->
+        </dependency>
+
+        <!--sy-chat-SDK-->
+        <dependency>
+            <groupId>io.gitee.a-little-zhu</groupId>
+            <artifactId>sy-chat-sdk</artifactId>
+            <version>0.0.3</version>
         </dependency>
 
     </dependencies>
