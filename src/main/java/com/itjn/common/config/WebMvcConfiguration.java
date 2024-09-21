@@ -38,7 +38,7 @@ public class WebMvcConfiguration extends WebMvcConfigurationSupport {
                 .excludePathPatterns("/user/login")
                 .excludePathPatterns("/user/register")
                 .excludePathPatterns("/user/checkCode")
-                .excludePathPatterns("/**/*.{OPTIONS}");// 排除所有的 OPTIONS 请求
+                .excludePathPatterns("/**/*.{OPTIONS}"); //排除所有的 OPTIONS 请求
 
         /*registry.addInterceptor(jwtTokenAdminInterceptor)
                 .addPathPatterns("/admin/**")

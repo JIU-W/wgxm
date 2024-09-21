@@ -1,10 +1,13 @@
 package com.itjn.domain.entity;
 
+import io.swagger.annotations.ApiModel;
+
 import java.io.Serializable;
 
 /**
  * 公告信息表
 */
+@ApiModel(value = "公告信息表")
 public class Notice implements Serializable {
     private static final long serialVersionUID = 1L;
 

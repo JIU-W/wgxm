@@ -26,8 +26,8 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
     private JwtProperties jwtProperties;
 
     /**
-     * 校验jwt
-     *
+     * 在请求处理之前进行调用（Controller方法调用之前）
+     * jwt校验
      * @param request
      * @param response
      * @param handler
@@ -68,4 +68,19 @@ public class JwtTokenUserInterceptor implements HandlerInterceptor {
             throw new BusibessException(ResultCodeEnum.TOKEN_INVALID_ERROR);
         }
     }
+
+    /**
+     * 请求处理之后进行调用，但是在视图被渲染之前（Controller方法调用之后）
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */
+    /*public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        //用完之后，移除线程变量中的数据，防止内存泄露
+        BaseContext.removeCurrentId();
+    }*/
+
+
 }
