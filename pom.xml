@@ -170,7 +170,7 @@
         <dependency>
             <groupId>io.gitee.a-little-zhu</groupId>
             <artifactId>sy-chat-sdk</artifactId>
-            <version>0.0.3</version>
+            <version>0.0.5</version>
         </dependency>
 
     </dependencies>

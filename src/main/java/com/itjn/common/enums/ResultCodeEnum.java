@@ -23,7 +23,9 @@ public enum ResultCodeEnum {
 
     CHECK_CODE_LOST_ERROR("5006", "图片验证码缺失"),
 
-    CHECK_CODE_ERROR("5007", "图片验证码错误");
+    CHECK_CODE_ERROR("5007", "图片验证码错误"),
+
+    FILE_UPLOAD_FAILED("5008", "文件上传失败");
 
     public String code;
     public String msg;

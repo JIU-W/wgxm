@@ -15,7 +15,6 @@ spring:
       max-request-size: 100MB
 
 
-
 mybatis:
   #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
@@ -45,11 +44,17 @@ logging:
   level:
     com:
       itjn:
-        mapper: debug
-        service: debug
-        controller: debug
+        mapper: debug   # info
+        service: info
+        controller: info # info
+  file:
+    path: log/wgxm.log
+  pattern:
+    dateformat: HH:mm:ss:SSS
 
-
+#文件路径
+avatar:
+  path: D:/idea.code/wgxm/files
 
 sy:
   chat:
