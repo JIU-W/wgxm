@@ -2,18 +2,21 @@ package com.itjn.controller;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.thread.ThreadUtil;
+import cn.hutool.core.util.StrUtil;
 import com.itjn.common.Result;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.exception.BusibessException;
+import com.mysql.cj.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -23,13 +26,17 @@ import java.util.UUID;
 @Slf4j
 public class FileController {
 
-    @Value("${avatar.path}")
+    @Value("${files.path}")
     private String basePath;
 
 
-    //文件上传接口
-    @PostMapping("/uploadFile")
-    public Result uploadFile(MultipartFile file){
+    /**
+     * 更新用户头像(图片上传、文件上传)
+     * @param file
+     * @return
+     */
+    @PostMapping("/uploadAvatar")
+    public Result uploadAvatar(MultipartFile file){
 
         /*String flag;
         synchronized (FileController.class) {
@@ -43,9 +50,9 @@ public class FileController {
         String originalFilename = file.getOriginalFilename();
 
         //fileName:新文件名
-        String fileName = UUID.randomUUID().toString() + originalFilename.substring(originalFilename.lastIndexOf("."));
+        String fileName = UUID.randomUUID() + originalFilename.substring(originalFilename.lastIndexOf("."));
         try {
-            String filePath = basePath + "/avatar/";
+            String filePath = basePath + "avatar/";
 
             if (!FileUtil.isDirectory(filePath)) {
                 FileUtil.mkdir(filePath);
@@ -55,17 +62,55 @@ public class FileController {
             file.transferTo(new File(filePath + fileName));
             //FileUtil.writeBytes(file.getBytes(), filePath + fileName);
 
-            log.info("文件上传成功");
+            log.info("头像上传成功");
         } catch (IOException e) {
-            log.error("文件上传失败");
-            throw new BusibessException(ResultCodeEnum.FILE_UPLOAD_FAILED);
+            log.error("头像上传失败",e);
+            throw new BusibessException(ResultCodeEnum.AVATAR_UPLOAD_FAILED);
         }
 
-        String avatarUrl = "/avatar" + fileName;
+        String avatarUrl = "/file/getAvatar/" + fileName;
+        //其实就是给前端拼接一个“获取图片接口”的路径
         return Result.success(avatarUrl);
     }
 
+
     //获取图片(图片下载、预览)
+    @GetMapping("/getAvatar/{imageName}")
+    public void getAvatar(@PathVariable String imageName, HttpServletResponse response){
+        if(StrUtil.isBlank(imageName)){
+            return;
+        }
+
+        //获取图片后缀
+        String imageSuffix = imageName.substring(imageName.lastIndexOf("."));
+        String filePath = basePath + "avatar/" + imageName;
+        //去除后缀中的点
+        imageSuffix = imageSuffix.replace(".", "");
+        String contentType = "image/" + imageSuffix;
+        response.setContentType(contentType);
+        response.setHeader("Cache-Control", "max-age=2592000");
+
+        try {
+            //将图片文件的内容写入响应流，从而返回给客户端。
+            //输入流，通过输入流读取文件内容
+            FileInputStream fileInputStream = new FileInputStream(filePath);
+            //输出流，通过输出流将文件写回浏览器
+            ServletOutputStream outputStream = response.getOutputStream();
+            int len = 0;
+            byte[] bytes = new byte[1024];
+            while ((len = fileInputStream.read(bytes)) != -1){
+                outputStream.write(bytes,0,len);
+                outputStream.flush();
+            }
+            //关闭资源
+            outputStream.close();
+            fileInputStream.close();
+        } catch (Exception e) {
+            log.error("获取头像失败",e);
+            e.printStackTrace();
+        }
+
+    }
 
     //TODO 文件上传到阿里云
 

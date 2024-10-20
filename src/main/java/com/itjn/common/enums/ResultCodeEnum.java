@@ -7,7 +7,7 @@ public enum ResultCodeEnum {
 
     PARAM_ERROR("400", "参数异常"),
 
-    TOKEN_INVALID_ERROR("401", "无效的token"),
+    TOKEN_INVALID_ERROR("401", "认证信息无效，请重新登录"),
 
     TOKEN_CHECK_ERROR("401", "token验证失败，请重新登录"),
 
@@ -25,7 +25,7 @@ public enum ResultCodeEnum {
 
     CHECK_CODE_ERROR("5007", "图片验证码错误"),
 
-    FILE_UPLOAD_FAILED("5008", "文件上传失败");
+    AVATAR_UPLOAD_FAILED("5008", "头像上传失败");
 
     public String code;
     public String msg;
