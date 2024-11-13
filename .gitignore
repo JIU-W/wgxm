@@ -1,18 +1,17 @@
 # Maven 构建输出
 target/
+**/target/
 
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-
-# 本地 IDE 配置文件
-.idea/
 *.iws
 *.iml
 *.ipr
@@ -32,6 +31,7 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -42,8 +42,6 @@ build/
 ### Mac OS ###
 .DS_Store
 
-**/target/
-.idea
 *.class
 
 # NetBeans 配置文件
