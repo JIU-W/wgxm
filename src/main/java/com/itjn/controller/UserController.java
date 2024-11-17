@@ -138,6 +138,4 @@ public class UserController {
         return Result.success();
     }*/
 
-    //TODO 引入Redis
-
 }

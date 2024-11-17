@@ -24,6 +24,16 @@ mybatis:
     #开启驼峰命名
     map-underscore-to-camel-case: true
 
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    # 开启mp的日志（输出到控制台）
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: AUTO
+
 wgxm:
   jwt:
     # 设置jwt签名加密时使用的秘钥
@@ -42,11 +52,7 @@ wgxm:
 
 logging:
   level:
-    com:
-      itjn:
-        mapper: debug   # info
-        service: debug
-        controller: debug # info
+    com.itjn: DEBUG  # Info
   file:
     path: log/wgxm.log
   pattern:

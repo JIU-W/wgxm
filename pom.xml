@@ -180,6 +180,19 @@
             <scope>test</scope>
         </dependency>
 
+        <!--日志-->
+        <!--<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>-->
+
+        <!-- MP -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+
     </dependencies>
 
 
