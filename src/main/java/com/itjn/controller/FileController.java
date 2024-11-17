@@ -4,6 +4,8 @@ import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.StrUtil;
 import com.itjn.common.Result;
+import com.itjn.common.annotation.Log;
+import com.itjn.common.enums.BusinessType;
 import com.itjn.common.enums.ResultCodeEnum;
 import com.itjn.exception.BusibessException;
 import com.mysql.cj.util.StringUtils;
@@ -35,6 +37,7 @@ public class FileController {
      * @param file
      * @return
      */
+    @Log(title = "上传用户头像", businessType = BusinessType.UPLOAD)
     @PostMapping("/uploadAvatar")
     public Result uploadAvatar(MultipartFile file){
 
@@ -75,6 +78,7 @@ public class FileController {
 
 
     //获取图片(图片下载、预览)
+    @Log(title = "获取用户头像", businessType = BusinessType.DOWNLOAD)
     @GetMapping("/getAvatar/{imageName}")
     public void getAvatar(@PathVariable String imageName, HttpServletResponse response){
         if(StrUtil.isBlank(imageName)){

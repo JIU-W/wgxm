@@ -46,6 +46,7 @@ public class UserInfoController {
     }
 
     //修改用户信息
+    @Log(title = "修改用户信息", businessType = BusinessType.UPDATE)
     @PutMapping("/update")
     public Result update(@RequestBody User user){
         userInfoService.updateUserInfo(user);
@@ -53,6 +54,7 @@ public class UserInfoController {
     }
 
     //修改用户密码
+    @Log(title = "修改用户密码", businessType = BusinessType.UPDATE)
     @PutMapping("/updatePassword")
     public Result updatePassword(@RequestBody ChangePasswordDTO changePasswordDTO){
         if (changePasswordDTO.getUserId() == null || StrUtil.isBlank(changePasswordDTO.getPassword())
@@ -64,6 +66,7 @@ public class UserInfoController {
     }
 
     //新增用户
+    @Log(title = "新增用户", businessType = BusinessType.INSERT)
     @PostMapping("/save")
     public Result save(@RequestBody User user){
         userInfoService.save(user);
@@ -71,6 +74,7 @@ public class UserInfoController {
     }
 
     //根据userId删除用户
+    @Log(title = "根据userId删除用户", businessType = BusinessType.DELETE)
     @DeleteMapping("/delete/{userId}")
     public Result deleteByUserId(@PathVariable Integer userId){
         userInfoService.deleteByUserId(userId);
@@ -78,6 +82,7 @@ public class UserInfoController {
     }
 
     //批量删除
+    @Log(title = "批量删除用户", businessType = BusinessType.DELETE)
     @DeleteMapping("/delete/batch")
     public Result deleteBatch(@RequestBody List<Integer> ids){
         userInfoService.deleteBatch(ids);
@@ -85,6 +90,7 @@ public class UserInfoController {
     }
 
     //分页查询(用的sky-take-out那一套)
+    @Log(title = "分页查询用户信息", businessType = BusinessType.QUERY)
     @GetMapping("/selectPage")
     public Result page(UserPageQueryDTO userPageQueryDTO){
         PageResult pageResult = userInfoService.selectPage(userPageQueryDTO);

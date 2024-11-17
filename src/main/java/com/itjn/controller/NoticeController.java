@@ -1,6 +1,8 @@
 package com.itjn.controller;
 
 
+import com.itjn.common.annotation.Log;
+import com.itjn.common.enums.BusinessType;
 import com.itjn.service.NoticeService;
 import com.github.pagehelper.PageInfo;
 import com.itjn.common.Result;
@@ -26,6 +28,7 @@ public class NoticeController {
     /**
      * 新增
      */
+    @Log(title = "新增公告", businessType = BusinessType.INSERT)
     @ApiOperation(value = "新增公告")
     @PostMapping("/add")
     public Result add(@RequestBody Notice notice) {
@@ -36,6 +39,7 @@ public class NoticeController {
     /**
      * 删除
      */
+    @Log(title = "删除公告", businessType = BusinessType.DELETE)
     @ApiOperation(value = "根据id删除公告")
     @DeleteMapping("/delete/{id}")
     public Result deleteById(@PathVariable Integer id) {
@@ -46,6 +50,7 @@ public class NoticeController {
     /**
      * 批量删除
      */
+    @Log(title = "批量删除公告", businessType = BusinessType.DELETE)
     @ApiOperation(value = "批量删除公告")
     @DeleteMapping("/delete/batch")
     public Result deleteBatch(@RequestBody List<Integer> ids) {
@@ -56,6 +61,7 @@ public class NoticeController {
     /**
      * 修改
      */
+    @Log(title = "修改公告", businessType = BusinessType.UPDATE)
     @ApiOperation(value = "根据id修改公告")
     @PutMapping("/update")
     public Result updateById(@RequestBody Notice notice) {
@@ -66,6 +72,7 @@ public class NoticeController {
     /**
      * 根据ID查询
      */
+    @Log(title = "根据ID查询公告", businessType = BusinessType.QUERY)
     @ApiOperation(value = "根据id查询公告")
     @GetMapping("/selectById/{id}")
     public Result selectById(@PathVariable Integer id) {
@@ -76,6 +83,7 @@ public class NoticeController {
     /**
      * 查询所有
      */
+    @Log(title = "查询所有公告", businessType = BusinessType.QUERY)
     @ApiOperation(value = "查询所有公告信息")
     @GetMapping("/selectAll")
     public Result selectAll(Notice notice) {
@@ -86,6 +94,7 @@ public class NoticeController {
     /**
      * 分页查询
      */
+    @Log(title = "分页查询公告", businessType = BusinessType.QUERY)
     @ApiOperation(value = "分页查询公告信息")
     @GetMapping("/selectPage")
     public Result selectPage(Notice notice,

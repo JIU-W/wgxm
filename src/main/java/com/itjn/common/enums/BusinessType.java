@@ -51,4 +51,14 @@ public enum BusinessType {
      */
     REGISTER,
 
+    /**
+     * 上传
+     */
+    UPLOAD,
+
+    /**
+     * 下载
+     */
+    DOWNLOAD,
+
 }
