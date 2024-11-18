@@ -13,7 +13,18 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
-
+  redis:
+    host: localhost
+    post: 6379
+    password: 123456
+    database: 10
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 0
+        max-wait: 100ms
+    timeout: 2000
 
 mybatis:
   #mapper配置文件

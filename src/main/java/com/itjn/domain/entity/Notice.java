@@ -1,65 +1,36 @@
 package com.itjn.domain.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * 公告信息表
 */
 @ApiModel(value = "公告信息表")
+@TableName(value = "notice")
 public class Notice implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** ID */
+
     private Integer id;
-    /** 标题 */
+
     private String title;
-    /** 内容 */
+
     private String content;
-    /** 创建时间 */
-    private String time;
-    /** 创建人 */
-    private String user;
+    //简介
+    private String descr;
+    //封面
+    private String cover;
 
-    public Integer getId() {
-        return id;
-    }
+    private String tags;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Integer userId;
 
-    public String getTitle() {
-        return title;
-    }
+    private String date;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
+    private Integer readCount;
 
 }
