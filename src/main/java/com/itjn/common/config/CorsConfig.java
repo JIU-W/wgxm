@@ -9,13 +9,17 @@ import org.springframework.web.filter.CorsFilter;
 
 
 //配置类WebMvcConfiguration已经配置了跨域，这里就不再配置了。
+
 /**
- * 跨域配置
+ * @description 不使用的跨域配置
+ * @author JIU-W
+ * @date 2024-11-18
+ * @version 1.0
  */
-/*@Configuration
-@Slf4j
+//@Configuration
+//@Slf4j
 public class CorsConfig {
-    @Bean
+    /*@Bean
     public CorsFilter corsFilter() {
         log.info("开始进行跨域配置");
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -25,5 +29,5 @@ public class CorsConfig {
         corsConfiguration.addAllowedMethod("*"); // 3 允许所有请求方法
         source.registerCorsConfiguration("/**", corsConfiguration); // 4 对接口配置跨域设置
         return new CorsFilter(source);
-    }
-}*/
+    }*/
+}

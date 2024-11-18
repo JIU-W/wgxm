@@ -14,13 +14,13 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 //@SuppressWarnings(value = {"unchecked", "rawtypes"})
+@Slf4j
 @Component
 public class RedisUtil {
 
     @Resource
     public RedisTemplate redisTemplate;
 
-    private static final Logger logger = LoggerFactory.getLogger(RedisUtil.class);
 
     /**
      * 缓存基本的对象，Integer、String、实体类等
@@ -32,7 +32,7 @@ public class RedisUtil {
         try {
             redisTemplate.opsForValue().set(key, value);
         } catch (Exception e) {
-            logger.error("设置RedisKey:{},value:{}失败", key, value);
+            log.error("设置RedisKey:{},value:{}失败", key, value);
         }
     }
 
@@ -47,8 +47,8 @@ public class RedisUtil {
     public <T> void setCacheObject(final String key, final T value, final Integer timeout, final TimeUnit timeUnit) {
         try {
             redisTemplate.opsForValue().set(key, value, timeout, timeUnit);
-        }catch (Exception e){
-            logger.error("设置RedisKey:{},value:{}失败", key, value);
+        } catch (Exception e) {
+            log.error("设置RedisKey:{},value:{}失败", key, value);
         }
     }
 
@@ -198,6 +198,18 @@ public class RedisUtil {
         HashOperations<String, String, T> opsForHash = redisTemplate.opsForHash();
         return opsForHash.get(key, hKey);
     }
+
+    /**
+     * 对 Hash 结构中的指定字段的值进行"增量"操作
+     *
+     * @param key
+     * @param hKey
+     * @param value
+     */
+    public void incrementCacheMapValue(String key, String hKey, int value) {
+        redisTemplate.opsForHash().increment(key, hKey, value);
+    }
+
 
     /**
      * 删除Hash中的数据

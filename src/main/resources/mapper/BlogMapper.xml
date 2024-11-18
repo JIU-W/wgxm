@@ -8,7 +8,17 @@
         id,title,content,descr,cover,tags,user_id,date,read_count,category_id
     </sql>
 
-
+    <update id="update" parameterType="java.util.List">
+        UPDATE blog
+        SET read_count =
+        <foreach collection="blogs" item="blog" separator=" " open="CASE id" close="END">
+            WHEN #{blog.id} THEN #{blog.readCount}
+        </foreach>
+        WHERE id IN
+        <foreach collection="blogs" item="blog" separator="," open="(" close=")">
+            #{blog.id}
+        </foreach>
+    </update>
 
 
 </mapper>
