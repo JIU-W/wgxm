@@ -8,7 +8,7 @@
         id,title,content,descr,cover,tags,user_id,date,read_count,category_id
     </sql>
 
-    <!-- 通过两个foreach标签实现批量修改 -->
+    <!-- 通过两个foreach标签拼接实现批量修改 -->
     <update id="update" parameterType="java.util.List">
         UPDATE blog
         SET read_count =
