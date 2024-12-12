@@ -3,7 +3,6 @@ package com.itjn.controller;
 import cn.hutool.core.util.StrUtil;
 import com.itjn.common.Result;
 import com.itjn.common.annotation.Log;
-import com.itjn.common.config.CaptchaConfig;
 import com.itjn.common.constants.Constants;
 import com.itjn.common.enums.BusinessType;
 import com.itjn.common.enums.ResultCodeEnum;
@@ -40,8 +39,6 @@ public class UserController {
     @Autowired
     private JwtProperties jwtProperties;
 
-    @Autowired
-    private CaptchaConfig catchaConfig;
 
     //获取验证码
     @Log(title = "获取图片验证码信息", businessType = BusinessType.OTHER)
@@ -53,10 +50,19 @@ public class UserController {
         response.setDateHeader("Expires", 0);
         response.setContentType("image/jpeg");
         String code = imageCode.getCode();
-        //将code保存到session(前端因为跨越等多种问题导致验证码存不进session,
-        //                              改用集合存,后面也可以尝试用集合存)
-        //session.setAttribute(Constants.CHECK_CODE_KEY, code);
-        catchaConfig.setCaptcha(Constants.CHECK_CODE_KEY, code);
+        //不可以单纯的用集合存储，因为不同的用户来源获取的code是不同的，
+        //只单纯的用集合存储会导致所有人用的验证码都是一个，而前端获取的code也是同一个，
+        //那一个人改了验证码的话，其他人的也就跟着改了，其他人就无法登录了。
+
+        //用session可以的原因：在session存code的时候，会往前端浏览器的cookie存上一个对应的sessionId,
+        //下次来请求时，就会请求头里从把cookie里的sessionId传到服务器，然后根据sessionId找到对应的session，
+        //从而找到对应的数据。
+        //不同的用户开的会话都不一样，在自己的回话里生成验证码，登录的时候来取的话只会取自己的，而不会取别人的。
+
+        //注：但是由于一开始要先建立会话，所以在打开浏览器的第一次刚刚创建会话时，会导致第一次登录会报错：验证码错误。
+
+        //将code保存到session
+        session.setAttribute(Constants.CHECK_CODE_KEY, code);
 
         //调用CreateImageCode对象的write方法，将生成的验证码图片写入到response的输出流中，
         //这样客户端就可以接收到这个验证码图片并显示出来。
@@ -79,13 +85,12 @@ public class UserController {
         if (StringUtils.isNullOrEmpty(userLoginDTO.getCheckCode())) {
             return Result.error(ResultCodeEnum.CHECK_CODE_LOST_ERROR);
         }
-        //System.out.println((String)session.getAttribute(Constants.CHECK_CODE_KEY));
+        System.out.println((String)session.getAttribute(Constants.CHECK_CODE_KEY));
+
         //校验验证码
-        /*if(!userLoginDTO.getCheckCode().equalsIgnoreCase((String)session.getAttribute(Constants.CHECK_CODE_KEY))){
-            throw new BusibessException(ResultCodeEnum.CHECK_CODE_ERROR);
-        }*/
-        //校验验证码
-        if(!userLoginDTO.getCheckCode().equalsIgnoreCase(catchaConfig.getCaptchaMap(Constants.CHECK_CODE_KEY))){
+        //从session中获取验证码
+        String code = (String)session.getAttribute(Constants.CHECK_CODE_KEY);
+        if(!userLoginDTO.getCheckCode().equalsIgnoreCase(code)){
             throw new BusibessException(ResultCodeEnum.CHECK_CODE_ERROR);
         }
 
